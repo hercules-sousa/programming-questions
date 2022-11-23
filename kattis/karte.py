@@ -19,12 +19,25 @@ cards_dict = {
     }
 }
 
+error = False
 for i in range(0, len(cards), 3):
     card = cards[i + 1: i + 3]
     if card not in cards_dict[cards[i]]["cards"]:
         cards_dict[cards[i]]["cards"].append(card)
         cards_dict[cards[i]]["n"] -= 1
     else:
-        print("GRESKA")
+        error = True
+        break
 
-print(cards_dict)
+if not error:
+    result = str()
+    counter = 0
+    for key in cards_dict:
+        if counter < 3:
+            result += str(cards_dict[key]["n"]) + ' '
+        else:
+            result += str(cards_dict[key]["n"])
+        counter += 1
+    print(result)
+else:
+    print("GRESKA")
