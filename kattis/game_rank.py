@@ -41,11 +41,5 @@ for game in games:
                     elif current_rank <= 10 and current_rank >= 1:
                         stars = 4
 
-    """ print("Game", game)
-    print("Rank", current_rank)
-    print("Estrelas", stars)
-    print("Vitórias consecutivas", consecutive_wins)
-    print() """
-
 
 print("Legend" if current_rank == 0 else current_rank)
