@@ -29,7 +29,7 @@ for game in games:
         if current_rank < 20:
             stars -= 1
             if stars == -1:
-                current_rank -= 1
+                current_rank += 1
                 if current_rank >= 16:
                     stars = 2
                 elif current_rank <= 15 and current_rank >= 11:
