@@ -26,19 +26,26 @@ for game in games:
             break
     else:
         consecutive_wins = 0
-        if current_rank < 20:
+
+        if current_rank <= 20:
             stars -= 1
             if stars == -1:
-                current_rank += 1
-                if current_rank >= 16:
-                    stars = 2
-                elif current_rank <= 15 and current_rank >= 11:
-                    stars = 3
-                elif current_rank <= 10 and current_rank >= 1:
-                    stars = 4
+                if current_rank == 20:
+                    stars = 0
+                else:
+                    current_rank += 1
+                    if current_rank >= 16:
+                        stars = 2
+                    elif current_rank <= 15 and current_rank >= 11:
+                        stars = 3
+                    elif current_rank <= 10 and current_rank >= 1:
+                        stars = 4
 
-    """ print("Estrelas", stars)
-    print("Vitórias consecutivas", consecutive_wins) """
+    """ print("Game", game)
+    print("Rank", current_rank)
+    print("Estrelas", stars)
+    print("Vitórias consecutivas", consecutive_wins)
+    print() """
 
 
 print("Legend" if current_rank == 0 else current_rank)
