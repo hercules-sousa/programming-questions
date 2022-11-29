@@ -25,6 +25,9 @@ positions = {
 
 splitted_entry = entry.split("+---+---+---+---+---+---+---+---+")
 
+print(ord("a"))
+print(chr(97 + 1))
+
 for line_num in range(len(splitted_entry)):
     splitted_line = splitted_entry[line_num].split("|")
     if len(splitted_line) > 1:
@@ -34,12 +37,16 @@ for line_num in range(len(splitted_entry)):
             if pos[1] != ":" and pos[1] != ".":
                 piece = pos[1]
                 if piece.isupper():
-                    print(piece, "White piece")
+                    if piece not in positions["white"]:
+                        positions["white"][piece] = []
+                    positions["white"][piece].append(
+                        f"{chr(97 + column_num)}{9 - line_num}")
                 else:
                     if piece not in positions["black"]:
                         positions["black"][piece] = []
-                    positions["black"][piece].append("Teste")
-                    print(piece, "Black piece")
+                    positions["black"][piece].append(
+                        f"{chr(97 + column_num)}{line_num}")
 
 
-print(positions)
+print(positions["white"])
+print(positions["black"])
