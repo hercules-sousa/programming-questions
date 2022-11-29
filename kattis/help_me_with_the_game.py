@@ -48,5 +48,28 @@ for line_num in range(len(splitted_entry)):
                         f"{chr(97 + column_num)}{line_num}")
 
 
-print(positions["white"])
-print(positions["black"])
+white_arr = list()
+black_arr = list()
+
+correct_order = ["K", "Q", "R", "B", "N", "P"]
+for piece in correct_order:
+    if piece in positions["white"]:
+        positions["white"][piece] = sorted(
+            positions["white"][piece], key=lambda x: (x[0], x[1]))
+        for pos in positions["white"][piece]:
+            if piece != "P":
+                white_arr.append(f"{piece}{pos}")
+            else:
+                white_arr.append(pos)
+    elif piece in positions["black"]:
+        positions["black"][piece] = sorted(
+            positions["white"][piece], key=lambda x: (x[0], x[1]))
+        for pos in positions["black"][piece]:
+            if piece != "P":
+                black_arr.append(f"{piece}{pos}")
+            else:
+                black_arr.append(pos)
+
+
+print(f"White: {', '.join(white_arr)}")
+print(f"Black: {', '.join(white_arr)}")
